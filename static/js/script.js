@@ -1,0 +1,1 @@
+console.log("Hello dear developer, you have reached the console!");
