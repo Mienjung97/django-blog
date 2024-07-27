@@ -1,11 +1,14 @@
 from django.contrib import admin
-from .models import About, CollaborateRequest
 from django_summernote.admin import SummernoteModelAdmin
+from .models import About, CollaborateRequest
 
 # Register your models here.
 
 @admin.register(About)
 class PostAdmin(SummernoteModelAdmin):
+    """
+    Enables Admin to see content of posts(?).
+    """
 
     summernote_fields = ('content',)
 
@@ -18,5 +21,9 @@ class PostAdmin(SummernoteModelAdmin):
 
 @admin.register(CollaborateRequest)
 class CollaborateRequestAdmin(admin.ModelAdmin):
+    """
+    Enables the admin to read a collaboration message
+    and send a "read" info to the composer. 
+    """
 
     list_display = ('message', 'read',)
